@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 			try{
-				const response1 = await fetch("http://localhost:5000/signup",{
+				const response1 = await fetch("https://health-app-mern.vercel.app/signup",{
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -342,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				jsonData[key] = value;
 			}
 			try {
-				const response = await fetch("http://localhost:5000/signin", {
+				const response = await fetch("https://health-app-mern.vercel.app/signin", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json"
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				const data = await response.json();
 				
 				if (data.sts === "true") {
-					window.location.href = "http://localhost:5173/index.html";
+					window.location.href = "https://health-app-mern-frontend.vercel.app/";
 				} else {
 					alert("INVALID CREDENTIALS PLEASE RETRY :(");
 				}
