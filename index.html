@@ -353,6 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				const data = await response.json();
 				
 				if (data.sts === "true") {
+					alert("Please wait, redirecting you! :)")
 					window.location.href = "https://health-app-mern-frontend.vercel.app/";
 				} else {
 					alert("INVALID CREDENTIALS PLEASE RETRY :(");
