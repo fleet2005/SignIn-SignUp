@@ -280,7 +280,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="container" id="container">
 
 
-
 	<div class="form-container sign-up-container">
 		<form id="signup-form"> <!-- Update action to /signup and method to post -->
 			<span> Use your email for registration</span>
@@ -324,14 +323,26 @@ document.addEventListener('DOMContentLoaded', function() {
 		<form id="signin-form">
 			<h1>Sign in</h1> <br>
 			<span>Use your account</span>
-			<input type="email" placeholder="Email" name="email" required />
-			<input type="password" placeholder="Password" name="password" required/><br>
+			<input type="email" placeholder="Email" name="email"   />
+			<input type="password" placeholder="Password" name="password"  /><br>
 			<button id="submit" type="submit">Sign In</button>
+			<a href="https://health-app-mern-frontend.vercel.app/" class="guest-button" id="guestLogin">
+				<button class="guest-button">Login As Guest</button> 
+			</a>
+			<div id="response-message"></div>
 		</form>
-		<div id="response-message"></div>
+		
+		
 	</div>
 	
+	
+	
 	<script>
+		document.getElementById("guestLogin").addEventListener("click", function(event) {
+			event.preventDefault();  
+			window.location.href = this.href;  
+		});
+
 		document.getElementById("submit").addEventListener("click", async function(event) {
 			event.preventDefault();
 			
@@ -353,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
 				const data = await response.json();
 				
 				if (data.sts === "true") {
-					alert("Please wait, redirecting you! :)")
+					document.getElementById("response-message").innerText = "Please Wait, Redirecting!";
 					window.location.href = "https://health-app-mern-frontend.vercel.app/";
 				} else {
 					alert("INVALID CREDENTIALS PLEASE RETRY :(");
@@ -363,6 +374,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 		});
 		
+
 		
 	</script>
 
